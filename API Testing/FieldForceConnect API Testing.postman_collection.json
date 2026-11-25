@@ -34,7 +34,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n  \"username\": \"smithashetty027@gmail.com\",\r\n  \"password\": \"Smitha2006\"\r\n}",
+          "raw": "{\r\n  \"username\": \"YOUR EMAIL\",\r\n  \"password\": \"YOUR PASSWORD\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -87,7 +87,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n  \"username\": \"smithashetty027@gmail.com\",\r\n  \"password\": \"Smitha1234\"\r\n}",
+          "raw": "{\r\n  \"username\": \"YOUR EMAIL\",\r\n  \"password\": \"YOUR PASSWORD\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
