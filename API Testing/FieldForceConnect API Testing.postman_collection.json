@@ -1,0 +1,112 @@
+{
+  "info": {
+    "_postman_id": "420b0757-596d-4cbd-8d34-a4958f2e0c06",
+    "name": "FieldForceConnect API Testing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56141677",
+    "_collection_link": "https://go.postman.co/collection/56141677-420b0757-596d-4cbd-8d34-a4958f2e0c06?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Login API - Valid Credentials",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Login API returns status 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Login response indicates success\", function () {\r",
+              "    const response = pm.response.json();\r",
+              "    pm.expect(response.success).to.eql(true);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"smithashetty027@gmail.com\",\r\n  \"password\": \"Smitha2006\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/account/authenticate",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "account",
+            "authenticate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login API - Invalid Credentials",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"API returns HTTP 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Invalid login is rejected\", function () {\r",
+              "    const response = pm.response.json();\r",
+              "    pm.expect(response.success).to.eql(false);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Invalid login error message is displayed\", function () {\r",
+              "    pm.expect(pm.response.text().toLowerCase())\r",
+              "        .to.include(\"invalid email\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"smithashetty027@gmail.com\",\r\n  \"password\": \"Smitha1234\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/account/authenticate",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "account",
+            "authenticate"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
